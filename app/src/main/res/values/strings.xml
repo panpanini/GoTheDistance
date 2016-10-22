@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GoTheDistance</string>
+    <string name="current_steps">Current Steps: %d</string>
+</resources>
