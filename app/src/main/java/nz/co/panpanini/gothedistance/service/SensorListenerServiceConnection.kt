@@ -25,5 +25,14 @@ class SensorListenerServiceConnection : ServiceConnection {
         return 0
     }
 
+    fun getCurrentDistanceKilometres() : Float {
+        binder?.let {
+            val currentSteps = binder!!.getCurrentSteps()
+
+            return ((currentSteps * 0.7f) / 1000)
+        }
+
+        return 0f
+    }
 
 }

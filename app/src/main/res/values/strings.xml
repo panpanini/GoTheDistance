@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">GoTheDistance</string>
     <string name="current_steps">Current Steps: %d</string>
+
+
+    <string name="google_maps_android_key">AIzaSyCjNIiHdfDHHF7z5L_s9zWY9tNW__OZTjQ</string>
+    <string name="google_maps_api_key">AIzaSyBIlNKNXcPHobC344eXdT72BU5aQu6504A</string>
+    <string name="total_distance">Total distance: %s</string>
+    <string name="currently_walked">Currently walked: %s</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

@@ -19,13 +19,14 @@ class SharedPreferencesStepCountRepository(context : Context) : StepCountReposit
     }
 
     override fun updateStepCount(steps: Long): Long {
+        val currentSteps = getCurrentStepCount()
         // check if steps is higher than our current count
-        if (steps >= getCurrentStepCount()) {
+        if (steps >= currentSteps) {
             // incremental update - add the difference
-            setSteps(steps)
+            addSteps(steps - currentSteps)
         } else {
             // phone has probably rebooted - add it as-is
-            setSteps(steps + getCurrentStepCount())
+            setSteps(steps)
         }
 
         return getCurrentStepCount()
@@ -35,10 +36,12 @@ class SharedPreferencesStepCountRepository(context : Context) : StepCountReposit
         setSteps(0)
     }
 
-    fun setSteps(steps : Long) {
-        d {
-            "setSteps: $steps"
-        }
+    private fun addSteps(steps : Long) {
+        setSteps(steps + getCurrentStepCount())
+    }
+
+    private fun setSteps(steps : Long) {
+        d { "setSteps: $steps" }
         preferences.edit().putLong(preferencesKey, steps).apply()
     }
 

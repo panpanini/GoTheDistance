@@ -52,10 +52,8 @@ class SensorListener : Service(), SensorEventListener {
 
             stepCountRepository.updateStepCount(currentSteps.toLong())
 
+//            updateNotification(currentSteps)
 
-            if (!isBound) {
-                updateNotification(currentSteps)
-            }
         }
     }
 
